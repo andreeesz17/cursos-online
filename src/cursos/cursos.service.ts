@@ -61,4 +61,32 @@ export class CursosService {
         mensaje: mensaje
     };
   }
+  
+  async aprobacion(dataBody: any) {
+    const notas = dataBody.notas;
+    const notaMinima = dataBody.notaMinima;
+    let suma = 0;
+    for (const nota of notas) {
+        suma += nota;
+    }
+
+    const promedio = suma / notas.length;
+
+    let estado = "";
+    let mensaje = "";
+
+    if (promedio >= notaMinima) {
+        estado = "Aprobado";
+        mensaje = "Cumples con el promedio mínimo.";
+    } else {
+        estado = "Reprobado";
+        mensaje = "No alcanzas el promedio mínimo.";
+    }
+
+    return {
+        promedio: promedio,
+        estado: estado,
+        mensaje: mensaje
+    };
+  }
 }

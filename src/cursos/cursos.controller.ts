@@ -34,6 +34,12 @@ export class CursosController {
 
   @Post('horas-semanales')
     horasSemanales(@Body() dataBody: any) {
-    return this.cursosService.horasSemanales(dataBody);
+        return this.cursosService.horasSemanales(dataBody);
     }
+
+  @Post('aprobacion')
+  aprobacion(@Body() dataBody: any) {
+    return this.cursosService.aprobacion(dataBody);
+  }
+
 }
